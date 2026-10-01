@@ -42,7 +42,6 @@ import org.javaup.ai.manage.mq.message.DocumentParseRouteMessage;
 import org.javaup.ai.manage.service.DocumentManageService;
 import org.javaup.ai.manage.service.DocumentNavigationIndexService;
 import org.javaup.ai.manage.service.DocumentStorageService;
-import org.javaup.ai.manage.service.DocumentStructureGraphProjectionService;
 import org.javaup.ai.manage.service.DocumentStructureNodeService;
 import org.javaup.ai.manage.service.DocumentStrategyService;
 import org.javaup.ai.manage.service.DocumentTaskLogService;
@@ -109,7 +108,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @program: 企业级别深度设计 AI Agent。添加 阿星不是程序员 微信，添加时备注 super 来获取项目的完整资料
+ * @program: TRPGHelper - TRPG 跑团规则书问答助手（基于 nexus-agent 二次开发）
  * @description: 服务实现层
  * @author: 阿星不是程序员
  **/
@@ -150,8 +149,6 @@ public class DocumentManageServiceImpl implements DocumentManageService {
     private final ObjectProvider<DocumentKeywordSearchGateway> keywordSearchGatewayProvider;
 
     private final ObjectProvider<DocumentNavigationIndexService> navigationIndexServiceProvider;
-
-    private final ObjectProvider<DocumentStructureGraphProjectionService> graphProjectionServiceProvider;
 
     private final ObjectProvider<KnowledgeRouteIndexService> knowledgeRouteIndexServiceProvider;
 
@@ -312,11 +309,6 @@ public class DocumentManageServiceImpl implements DocumentManageService {
         if (knowledgeRouteIndexService != null) {
             log.info("删除知识路由索引中的文档快照: documentId={}", documentId);
             knowledgeRouteIndexService.deleteDocumentRoute(documentId);
-        }
-        DocumentStructureGraphProjectionService graphProjectionService = graphProjectionServiceProvider.getIfAvailable();
-        if (graphProjectionService != null && graphProjectionService.enabled()) {
-            log.info("删除文档结构图投影: documentId={}", documentId);
-            graphProjectionService.deleteByDocumentId(documentId);
         }
 
         documentProfileMapper.delete(new LambdaQueryWrapper<SuperAgentDocumentProfile>()

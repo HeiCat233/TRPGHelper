@@ -12,7 +12,7 @@
     <artifactId>nexus-agent-business-chat</artifactId>
 
     <name>nexus-agent-business-chat</name>
-    <description>超级智能体的对话业务</description>
+    <description>TRPGHelper 对话业务（规则书问答 Agent）</description>
 
     <dependencies>
         <dependency>
@@ -133,10 +133,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.neo4j.driver</groupId>
-            <artifactId>neo4j-java-driver</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

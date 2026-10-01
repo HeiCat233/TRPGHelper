@@ -10,7 +10,7 @@
 
     <name>${project.artifactId}</name>
     
-    <description>nexus-agent</description>
+    <description>TRPGHelper - TRPG 跑团规则书问答助手</description>
     
     <modules>
         <module>nexus-agent-business</module>
@@ -146,9 +146,9 @@
     </licenses>
 
     <scm>
-        <url>https://gitee.com/shining-stars-l/super-ai</url>
-        <connection>scm:git:git@gitee.com:shining-stars-l/super-ai.git</connection>
-        <developerConnection>scm:git:git@gitee.com:shining-stars-l/super-ai.git</developerConnection>
+        <url>https://github.com/HeiCat233/TRPGHelper</url>
+        <connection>scm:git:https://github.com/HeiCat233/TRPGHelper.git</connection>
+        <developerConnection>scm:git:https://github.com/HeiCat233/TRPGHelper.git</developerConnection>
         <tag>v${project.version}</tag>
     </scm>
 

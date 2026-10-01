@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @program: 企业级别深度设计 AI Agent。添加 阿星不是程序员 微信，添加时备注 super 来获取项目的完整资料
+ * @program: TRPGHelper - TRPG 跑团规则书问答助手（基于 nexus-agent 二次开发）
  * @description: 配置属性
  * @author: 阿星不是程序员
  **/
@@ -27,8 +27,6 @@ public class DocumentManageProperties {
     private PgVector pgVector = new PgVector();
 
     private Elasticsearch elasticsearch = new Elasticsearch();
-
-    private Neo4j neo4j = new Neo4j();
 
     @Data
     public static class Minio {
@@ -124,21 +122,5 @@ public class DocumentManageProperties {
         private Integer connectTimeoutMillis = 3000;
 
         private Integer socketTimeoutMillis = 5000;
-    }
-
-    @Data
-    public static class Neo4j {
-
-        private Boolean enabled = Boolean.FALSE;
-
-        private String uri = "bolt://127.0.0.1:7687";
-
-        private String username = "neo4j";
-
-        private String password = "12345678";
-
-        private String database = "neo4j";
-
-        private Integer queryTimeoutSeconds = 5;
     }
 }
