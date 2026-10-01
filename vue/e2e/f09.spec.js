@@ -559,7 +559,7 @@ test('retrieval fusion workbench groups outcomes and keeps candidate details but
   await expect(workbench).toContainText('重排分')
   await expect(workbench).toContainText('最终结果')
   await expect(workbench).not.toContainText('通道内第')
-  await expect(workbench).not.toContainText('星联智服全渠道客服平台上线与运营管理手册_响应式与可访问性验证长文件名.md')
+  await expect(workbench).not.toContainText('DND5e规则-SRD51-战斗顺序与行动经济_响应式与可访问性验证长文件名.md')
   await expect(workbench).not.toContainText('P#')
   await expect(workbench).not.toContainText('C#')
   await expect(workbench.locator('[data-fusion-candidate-inspector]')).toHaveCount(0)

@@ -37,7 +37,7 @@ describe('ordinary dashboard business scope', () => {
     await flushPromises()
 
     expect(mocks.queryDocumentPage).toHaveBeenCalledWith({ pageNo: 1, pageSize: 50, keyword: '' })
-    expect(wrapper.text()).toContain('文档总数')
+    expect(wrapper.text()).toContain('规则书总数')
     expect(wrapper.text()).toContain('建议演示路径')
     expect(wrapper.text()).toContain('最近接入文档')
     expect(wrapper.text()).toContain('员工手册')

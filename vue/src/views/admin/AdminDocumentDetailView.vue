@@ -83,7 +83,7 @@
       <div class="min-w-0">
         <div class="mb-1 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
           <Button variant="outline" size="sm" class="gap-1.5" type="button" @click="goBack"><ArrowLeftIcon class="h-4 w-4" />返回文档列表</Button>
-          <span>文档接入</span><span>/</span><strong class="text-foreground">文档工作台</strong>
+          <span>规则书接入</span><span>/</span><strong class="text-foreground">规则书工作台</strong>
         </div>
       </div>
       <Button variant="outline" class="rounded-md" size="lg" type="button" :disabled="loading" @click="loadAll">{{ loading ? '刷新中...' : '刷新详情' }}</Button>

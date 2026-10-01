@@ -65,10 +65,10 @@ const canSend = computed(() => {
   return Boolean(selectedDocumentId.value)
 })
 const composerPlaceholder = computed(() => {
-  if (isAutoDocumentMode.value) return '输入问题，系统会自动检索相关文档。'
+  if (isAutoDocumentMode.value) return '输入规则问题，系统会自动路由到对应规则书检索。'
   return isDocumentMode.value
-    ? '输入关于当前文档的问题。'
-    : '输入你想继续讨论的问题。'
+    ? '输入关于当前规则书的问题。'
+    : '输入你的跑团规则问题，例如：火球术命中后要怎么办？'
 })
 const sortedSessions = computed(() => [...sessions.value].sort((left, right) => {
   const leftTime = left?.updatedAt ? new Date(left.updatedAt).getTime() : 0
@@ -85,7 +85,7 @@ const latestAssistantDisplayId = computed(() => {
 })
 const showJumpToLatest = computed(() => displayMessages.value.length > 0 && !isFollowingOutput.value)
 const chatModeButtons = computed(() => [
-  { value: CHAT_MODES.DOCUMENT, label: '当前文档' },
+  { value: CHAT_MODES.DOCUMENT, label: '指定规则书' },
   { value: CHAT_MODES.AUTO_DOCUMENT, label: '自动知识' },
   { value: CHAT_MODES.OPEN_CHAT, label: '开放提问' }
 ])
@@ -95,9 +95,9 @@ const answerScopeSummary = computed(() => {
   return mode
 })
 const promptChips = [
-  { label: '了解助手能力', text: '请先介绍一下你能帮我做哪些事情，并给出几个典型使用场景' },
-  { label: '拆解复杂问题', text: '请帮我把一个复杂问题拆成清晰的分析步骤，并给出执行建议' },
-  { label: '梳理项目能力', text: '结合当前项目，帮我梳理对话能力、知识库能力和后台能力之间的关系' }
+  { label: '火球术判定', text: '我释放火球术命中了敌人，接下来要怎么办？请告诉我判定流程和伤害结算' },
+  { label: 'COC 检定', text: 'COC 7版的侦查检定怎么才算成功？奖励骰和惩罚骰怎么掷？' },
+  { label: '先攻顺序', text: 'DND 5e 的先攻顺序怎么决定？一个回合里我能做什么？' }
 ]
 
 function latestExchangeValue(session, key) {
@@ -570,8 +570,8 @@ onBeforeUnmount(() => {
               <span class="mx-auto grid size-11 place-items-center rounded-md border border-border bg-card text-primary" aria-hidden="true">
                 <SparklesIcon class="size-5" />
               </span>
-              <h2 class="mt-4 text-xl font-semibold leading-snug text-foreground">从一个具体问题开始</h2>
-              <p class="mx-auto mt-2 max-w-xl leading-7 text-muted-foreground">可以直接提问，也可以先在输入区选择回答模式和具体文档。</p>
+              <h2 class="mt-4 text-xl font-semibold leading-snug text-foreground">跑团中遇到规则问题，直接问</h2>
+              <p class="mx-auto mt-2 max-w-xl leading-7 text-muted-foreground">上传规则书后基于书内内容回答并给出判定指导；也可以先在输入区选择回答模式和具体规则书。</p>
               <div class="mx-auto mt-5 grid max-w-xl gap-2 sm:grid-cols-3">
                 <Button
                   v-for="prompt in promptChips"
@@ -644,10 +644,10 @@ onBeforeUnmount(() => {
 
               <div class="grid content-start gap-2">
                 <div v-if="isDocumentMode" class="grid gap-2">
-                  <label class="text-xs font-medium text-muted-foreground" for="chat-document-scope">提问文档</label>
+                  <label class="text-xs font-medium text-muted-foreground" for="chat-document-scope">提问规则书</label>
                   <Select v-model="selectedDocumentId" :disabled="isInteractionLocked || loadingDocumentOptions" @update:model-value="handleDocumentScopeChange">
                     <SelectTrigger id="chat-document-scope" class="h-11 w-full sm:h-9">
-                      <SelectValue placeholder="请选择一个文档" />
+                      <SelectValue placeholder="请选择一本规则书" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
@@ -655,10 +655,10 @@ onBeforeUnmount(() => {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
-                  <p v-if="!selectedDocumentName" class="text-xs text-[var(--status-waiting-fg)]">当前文档模式需要选择具体文档。</p>
+                  <p v-if="!selectedDocumentName" class="text-xs text-[var(--status-waiting-fg)]">指定规则书模式需要选择一本规则书。</p>
                 </div>
-                <p v-else-if="isAutoDocumentMode" class="text-sm leading-6 text-muted-foreground">系统会自动检索相关文档，再结合检索结果生成回答。</p>
-                <p v-else class="text-sm leading-6 text-muted-foreground">开放式提问使用通用对话能力，不限定当前文档。</p>
+                <p v-else-if="isAutoDocumentMode" class="text-sm leading-6 text-muted-foreground">系统会自动路由到对应规则体系并检索规则书内容，再结合检索结果生成判定指导。</p>
+                <p v-else class="text-sm leading-6 text-muted-foreground">开放式提问使用 ReAct Agent（支持联网搜索核实规则勘误），不限定当前规则书。</p>
               </div>
             </div>
           </details>

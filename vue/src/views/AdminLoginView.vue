@@ -2,9 +2,9 @@
   <div class="relative grid min-h-dvh place-items-center bg-admin-bg px-4 py-16 sm:px-6">
     <main class="w-full max-w-[440px]">
       <div class="mb-5 flex items-center gap-3 px-1">
-        <div class="grid size-9 place-items-center rounded-md bg-primary text-caption font-bold text-primary-foreground">NA</div>
+        <div class="grid size-9 place-items-center rounded-md bg-primary text-caption font-bold text-primary-foreground">TH</div>
         <div>
-          <p class="m-0 text-caption text-muted-foreground">Nexus Agent</p>
+          <p class="m-0 text-caption text-muted-foreground">TRPGHelper</p>
           <h1 class="m-0 text-title-sm font-semibold text-foreground">管理后台</h1>
         </div>
       </div>
@@ -70,7 +70,6 @@
       </form>
     </main>
 
-    <IcpFooter class="absolute inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom))] px-4 sm:px-6" />
   </div>
 </template>
 
@@ -78,7 +77,6 @@
 import { computed, reactive, ref } from 'vue'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/vue/24/outline'
 import { useRoute, useRouter } from 'vue-router'
-import IcpFooter from '../components/IcpFooter.vue'
 import { adminAuthApi, APIError } from '../api/api'
 import { saveAdminAuth } from '../utils/adminAuth'
 import { Button } from '@/components/ui/button'

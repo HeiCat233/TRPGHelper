@@ -8,12 +8,12 @@
         </Button>
         <Button size="lg" class="rounded-md" type="button" @click="goDocuments">
           <DocumentArrowUpIcon data-icon="inline-start" aria-hidden="true" />
-          前往文档接入
+          前往规则书接入
         </Button>
       </template>
     </PageHeader>
 
-    <AsyncState v-if="loading" state="loading" title="正在加载运营数据" description="文档接入和处理状态正在读取。" />
+    <AsyncState v-if="loading" state="loading" title="正在加载运营数据" description="规则书接入和处理状态正在读取。" />
 
     <AsyncState v-else-if="errorMessage" state="error" title="运营数据加载失败" :description="errorMessage">
       <template #action>
@@ -60,7 +60,7 @@
             <Button variant="ghost" size="sm" class="rounded-md" type="button" :loading="refreshing" loading-text="刷新中" @click="loadDashboard">刷新</Button>
           </div>
 
-          <AsyncState v-if="!documents.length" state="empty" title="当前还没有文档" description="先前往文档接入页面上传一份资料。" />
+          <AsyncState v-if="!documents.length" state="empty" title="当前还没有规则书" description="先前往规则书接入页面上传一份资料。" />
           <div v-else class="divide-y divide-border">
             <article v-for="item in documents.slice(0, 6)" :key="item.documentId" class="flex min-w-0 items-center justify-between gap-4 py-3.5 max-sm:items-start">
               <div class="min-w-0 flex-1">
@@ -104,17 +104,18 @@ const summary = reactive({
 })
 
 const metricCards = computed(() => [
-  { label: '文档总数', value: summary.total, hint: '已进入管理台的文档记录' },
-  { label: '解析成功', value: summary.parseSuccess, hint: '可进入策略确认阶段的文档' },
+  { label: '规则书总数', value: summary.total, hint: '已进入管理台的规则书记录' },
+  { label: '解析成功', value: summary.parseSuccess, hint: '可进入策略确认阶段的规则书' },
   { label: '策略已确认', value: summary.strategyConfirmed, hint: '已经形成最终切块链路' },
-  { label: '索引完成', value: summary.indexSuccess, hint: '可直接参与 RAG 检索问答' }
+  { label: '索引完成', value: summary.indexSuccess, hint: '可直接参与规则检索问答' }
 ])
 
 const demoSteps = [
-  { title: '上传文档', description: '通过管理台上传 PDF、Word、Markdown 等普通版支持的文档。' },
-  { title: '查看系统推荐策略', description: '根据文档结构与内容长度，查看系统推荐的父块和子块切分策略。' },
-  { title: '确认并构建索引', description: '在推荐结果基础上调整策略，再触发普通版的异步索引构建。' },
-  { title: '做对话观测', description: '查看当前文档问答、自动知识和开放提问三种模式下的会话执行轨迹。' }
+  { title: '上传规则书', description: '通过管理台上传 PDF、Word、Markdown 等格式的规则书（版权规则书请本地自备）。' },
+  { title: '查看系统推荐策略', description: '根据规则书结构与内容长度，查看系统推荐的父块和子块切分策略。' },
+  { title: '确认并构建索引', description: '在推荐结果基础上调整策略，再触发异步索引构建（向量 + 关键词双引擎）。' },
+  { title: '初始化知识路由', description: '执行 sql/Mysql/TRPG知识路由初始化脚本.sql，把规则书登记到对应规则体系（scope）。' },
+  { title: '开跑团直接提问', description: '在对话页指定规则书、自动知识或开放提问三种模式下获取规则判定指导。' }
 ]
 
 async function loadDashboard() {

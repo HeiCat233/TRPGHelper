@@ -59,7 +59,8 @@ describe('F09 compatibility cleanup contracts', () => {
   })
 
   it('keeps raw buttons limited to generated markdown citation tokens', () => {
-    const files = sourceFiles().filter((path) => path.endsWith('.vue') && !path.endsWith('/components/Chat.vue'))
+    const chatComponent = /[\\/]components[\\/]Chat\.vue$/
+    const files = sourceFiles().filter((path) => path.endsWith('.vue') && !chatComponent.test(path))
     const offenders = files.filter((path) => /<button\b/.test(readFileSync(path, 'utf8')))
     expect(offenders).toEqual([])
   })

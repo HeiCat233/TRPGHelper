@@ -5,8 +5,8 @@
   <div v-else class="app-shell">
     <header class="app-header">
       <div class="brand-lockup">
-        <div class="brand-mark" aria-hidden="true">S</div>
-        <h1 class="app-title">超级智能</h1>
+        <div class="brand-mark" aria-hidden="true">T</div>
+        <h1 class="app-title">TRPGHelper</h1>
       </div>
     </header>
 
@@ -14,14 +14,12 @@
       <router-view />
     </main>
 
-    <IcpFooter class="app-footer" />
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import IcpFooter from './components/IcpFooter.vue'
 import ConfirmDialog from './components/ConfirmDialog.vue'
 
 const route = useRoute()
@@ -75,12 +73,6 @@ const isFullscreenLayout = computed(() => route.meta?.layout === 'fullscreen')
 .app-main {
   max-width: 1440px;
   margin: 0 auto;
-}
-
-.app-footer {
-  max-width: 1440px;
-  margin: 16px auto 0;
-  padding-bottom: 2px;
 }
 
 @media (max-width: 960px) {

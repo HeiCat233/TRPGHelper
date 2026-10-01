@@ -62,7 +62,7 @@ describe('F07 observability session navigation', () => {
   it('keeps the document title, moves the summary behind an explicit dialog, and removes redundant overview content', async () => {
     mocks.getSession.mockResolvedValue({
       ...sessionWithTurns(2),
-      selectedDocumentName: '星联智服全渠道客服平台上线与运营管理手册.md',
+      selectedDocumentName: 'DND5e规则-SRD51-战斗顺序与行动经济.md',
       latestUserMessage: '最近用户问题不应重复展示',
       memorySummary: {
         compressionApplied: true,
@@ -76,7 +76,7 @@ describe('F07 observability session navigation', () => {
     const wrapper = mount(AdminObservabilitySessionView)
     await flushPromises()
 
-    expect(wrapper.text()).toContain('星联智服全渠道客服平台上线与运营管理手册.md')
+    expect(wrapper.text()).toContain('DND5e规则-SRD51-战斗顺序与行动经济.md')
     expect(wrapper.text()).toContain('查看长期摘要')
     expect(wrapper.findAll('button').some((button) => button.text().includes('刷新会话详情'))).toBe(false)
     expect(wrapper.text()).not.toContain('长期摘要快照')

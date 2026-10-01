@@ -163,7 +163,7 @@ onMounted(() => { if (!isUser.value) highlightCodeBlocks() })
             <SparklesIcon class="size-4" />
           </span>
           <div class="min-w-0">
-            <p class="font-semibold text-foreground">智能助手</p>
+            <p class="font-semibold text-foreground">TRPG 规则助手</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{{ formatTime(message.updatedAt || message.createdAt) }}</p>
           </div>
         </div>

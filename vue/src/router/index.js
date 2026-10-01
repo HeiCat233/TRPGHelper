@@ -51,7 +51,7 @@ const router = createRouter({
           name: 'AdminDocuments',
           component: () => import('../views/admin/AdminDocumentListView.vue'),
           meta: {
-            title: '文档接入'
+            title: '规则书接入'
           }
         },
         {

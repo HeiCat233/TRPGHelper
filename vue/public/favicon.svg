@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 背景圆形 -->
-  <circle cx="16" cy="16" r="16" fill="#4A90E2"/>
-  
-  <!-- AI 文字 -->
-  <text x="16" y="22" font-family="Arial" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI</text>
-  
-  <!-- 装饰性元素 -->
-  <path d="M8 16 L12 12 L16 16 L12 20 Z" fill="white" opacity="0.3"/>
-  <path d="M16 16 L20 12 L24 16 L20 20 Z" fill="white" opacity="0.3"/>
-</svg> 
+  <!-- 圆角背景 -->
+  <rect width="32" height="32" rx="7" fill="#4A90E2"/>
+
+  <!-- d20 二十面骰外轮廓（六边形投影） -->
+  <path d="M16 4.5 L26 10.25 L26 21.75 L16 27.5 L6 21.75 L6 10.25 Z"
+        fill="#FFFFFF" fill-opacity="0.14" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- 中央面三角形 -->
+  <path d="M16 10.5 L21 19 L11 19 Z"
+        fill="none" stroke="#FFFFFF" stroke-width="1.3" stroke-linejoin="round"/>
+
+  <!-- 棱线 -->
+  <path d="M16 4.5 L16 10.5 M6 10.25 L11 19 M26 10.25 L21 19 M11 19 L16 27.5 M21 19 L16 27.5"
+        stroke="#FFFFFF" stroke-width="0.9" opacity="0.65" fill="none"/>
+</svg>

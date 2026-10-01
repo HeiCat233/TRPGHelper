@@ -17,7 +17,7 @@ describe('F05 admin shell contracts', () => {
     expect(layout).toContain('href="#admin-main-content"')
     expect(layout).toContain('id="admin-main-content"')
     expect(layout).toContain('direction="left"')
-    expect(layout).toContain('知识资产')
+    expect(layout).toContain('规则书库')
     expect(layout).toContain('路由与观测')
     expect(layout).not.toContain('sidebar-mask')
   })

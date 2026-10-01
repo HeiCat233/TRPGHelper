@@ -1,10 +1,10 @@
 <template>
   <section class="flex flex-col gap-5">
-    <PageHeader title="文档接入">
+    <PageHeader title="规则书接入">
       <template #actions>
         <Button size="lg" class="rounded-md" type="button" @click="openUploadModal">
           <ArrowUpTrayIcon data-icon="inline-start" aria-hidden="true" />
-          上传文档
+          上传规则书
         </Button>
       </template>
     </PageHeader>
