@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <name>nexus-agent-business</name>
-    <description>超级智能体的业务</description>
+    <description>TRPGHelper 业务模块</description>
 
     <modules>
         <module>nexus-agent-business-chat</module>

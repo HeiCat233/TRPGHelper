@@ -5,7 +5,7 @@ import org.javaup.ai.chatagent.service.TaskInfo;
 import reactor.core.publisher.Flux;
 
 /**
- * @program: 企业级别深度设计 AI Agent。添加 阿星不是程序员 微信，添加时备注 super 来获取项目的完整资料
+ * @program: TRPGHelper - TRPG 跑团规则书问答助手（基于 nexus-agent 二次开发）
  * @description: 统一对话执行器抽象
  * @author: 阿星不是程序员
  **/
