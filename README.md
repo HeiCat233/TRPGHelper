@@ -95,6 +95,8 @@ cd vue && npm install && npm run dev
 
 浏览器访问 `http://localhost:5173`。管理后台默认账号密码 `admin / admin123456`（可通过环境变量 `NEXUS_AGENT_ADMIN_USERNAME/PASSWORD` 覆盖）。
 
+> 注意：`vue/public/webviewer/`（PDFTron 预览库，约 150MB）不随仓库分发，已加入 `.gitignore`；如需在浏览器内预览 PDF 规则书，请自行下载 WebViewer 放入该目录，前端其余功能不受影响。
+
 # 规则书接入流程
 
 1. **上传规则书**：管理后台 → 文档接入 → 上传（支持 pdf / docx / md / txt 等），系统自动解析并生成切块策略；
