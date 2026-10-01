@@ -55,3 +55,5 @@ vue/playwright-report/
 __pycache__/
 
 document
+### 第三方 PDF 预览库（体积过大不入库，请自行下载放入） ###
+vue/public/webviewer/
